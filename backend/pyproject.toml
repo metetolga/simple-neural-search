@@ -1,0 +1,23 @@
+[tool.poetry]
+name = "backend"
+version = "0.1.0"
+description = ""
+authors = ["mete <vimtuoso@gmail.com>"]
+readme = "README.md"
+package-mode = false
+
+[tool.poetry.dependencies]
+python = "^3.13"
+numpy = "^2.2.5"
+pandas = "^2.2.3"
+scikit-learn = "^1.6.1"
+matplotlib = "^3.10.1"
+fastapi = "^0.115.12"
+uvicorn = "^0.34.2"
+sentence-transformers = "^4.1.0"
+qdrant-client = "^1.14.2"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
