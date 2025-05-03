@@ -8,18 +8,22 @@ client = QdrantClient("http://localhost:6333")
 CNAME = 'startups'
 
 if __name__ == "__main__":
-    if not client.collection_exists(CNAME):
-        client.create_collection(
-            collection_name=CNAME,
-            vectors_config=VectorParams(size=384, distance=Distance.COSINE)
-        )
+    if client.collection_exists(CNAME):
+        client.delete_collection(CNAME)
+
+    print(f"Collection created {CNAME}")
+    client.create_collection(
+        collection_name=CNAME,
+        vectors_config=VectorParams(size=384, distance=Distance.COSINE)
+    )
     
     fd = open('backend/data/startups_demo.json')
 
     payload = map(json.loads, fd)
-    print(list(payload)[0]) # check an item 
+    # print(list(payload)[0]) # check an item 
     
     vectors = np.load("backend/data/startup_vectors.npy")
+    print(len(vectors))
     client.upload_collection(
         collection_name=CNAME,
         vectors=vectors, 
