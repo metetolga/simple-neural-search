@@ -14,12 +14,12 @@ if __name__ == "__main__":
             vectors_config=VectorParams(size=384, distance=Distance.COSINE)
         )
     
-    fd = open('./backend/data/startups_demo.json')
+    fd = open('backend/data/startups_demo.json')
 
     payload = map(json.loads, fd)
     print(list(payload)[0]) # check an item 
     
-    vectors = np.load("./backend/data/startup_vectors.npy")
+    vectors = np.load("backend/data/startup_vectors.npy")
     client.upload_collection(
         collection_name=CNAME,
         vectors=vectors, 
