@@ -63,3 +63,6 @@ docs_build/
 site/
 docs.zip
 archive.zip
+
+# qdrant
+qdrant_storage/
