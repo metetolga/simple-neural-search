@@ -1,33 +1,42 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import './index.css'
 import './App.css'
+import logo from './assets/react.svg'
 
 function App() {
-  const [count, setCount] = useState(0)
 
   return (
     <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+    <nav className='navbar'>
+      <div className="container">
+        <div className="logo">
+          <a href="index.html">
+            <img src={logo} alt="logo"/>
+          </a>
+        </div>
+        <div className='header'>
+          <a href="index.html">
+            <h2 className='text-xl'>Simple Neural Search</h2>
+          </a>
+        </div>
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
+    </nav>
+    <section className="hero">
+      <div className="container">
+        <div className="hero-item hero-input">
+          <h3 className='text-md'>Configuration</h3>
+          <h4 className='text-sm'> Say something about job description </h4>
+          <form action="#">
+            <textarea name="user-query"></textarea>
+            <br />
+            <input className='btn' type="submit" value="submit" />
+          </form>
+        </div>
+        <div className="hero-item hero-output">
+          <h3 className='text-md'>Job Openings</h3>
+          <textarea name="query-result" ></textarea>
+        </div>
       </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+    </section>
     </>
   )
 }
